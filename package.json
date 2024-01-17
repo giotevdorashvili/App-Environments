@@ -7,11 +7,22 @@
     "ios": "react-native run-ios",
     "lint": "eslint .",
     "start": "react-native start",
-    "test": "jest"
+    "test": "jest",
+    "setDevelopment": "ENVFILE=.env.development",
+    "setProduction": "ENVFILE=.env.production",
+    "ios:dev": "yarn setDevelopment react-native run-ios --mode=Debug --scheme development",
+    "ios:dev-release": "yarn ios:clean && yarn setDevelopment react-native run-ios --mode=Release --scheme \"development\"",
+    "ios:prod": "yarn setProduction react-native run-ios --mode=Debug --scheme production",
+    "ios:prod-release": " yarn ios:clean && yarn ios:bundle:assets && yarn setProduction  react-native run-ios --mode=Release --scheme \"production\"",
+    "android:dev": "yarn setDevelopment react-native run-android --mode=developmentDebug --appIdSuffix=development",
+    "android:dev-release": "yarn setDevelopment react-native run-android --mode=developmentRelease--appIdSuffix=development",
+    "android:prod": "yarn setProduction  react-native run-android --mode=productionDebug --appIdSuffix=production",
+    "android:prod-release": "yarn setProduction  react-native run-android --mode=productionRelease --appIdSuffix=production"
   },
   "dependencies": {
     "react": "18.2.0",
-    "react-native": "0.73.2"
+    "react-native": "0.73.2",
+    "react-native-config": "^1.5.1"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",
