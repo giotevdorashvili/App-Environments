@@ -19,6 +19,9 @@ module.exports = {
         root: ['.'],
         alias: {
           '@components': './src/components',
+          '@locals': './src/locals',
+          '@hooks': './src/hooks',
+          '@utils': './src/utils',
         },
       },
     ],
