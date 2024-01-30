@@ -1,9 +1,13 @@
 {
   "extends": "@react-native/typescript-config/tsconfig.json",
   "compilerOptions": {
+    "module": "esnext",
     "baseUrl": ".",
     "paths": {
-      "@components/*": ["src/components/*"]
+      "@components/*": ["src`/components/*"],
+      "@locals/*": ["src`/locals/*"],
+      "@hooks/*": ["src`/hooks/*"],
+      "@utils/*": ["src`/utils/*"]
     }
   }
 }

@@ -1,0 +1,10 @@
+{
+  "language": "English",
+  "app": {
+    "how": "How do you want your egg today?",
+    "boiledEgg": "Boiled egg",
+    "softBoiledEgg": "Soft-boiled egg",
+    "production": "I am from production",
+    "development": "I am from development"
+  }
+}
