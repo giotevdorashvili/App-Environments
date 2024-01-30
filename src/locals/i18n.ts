@@ -3,7 +3,22 @@ import {initReactI18next} from 'react-i18next';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import {en, ge} from 'src/locals/translations';
-import {alert} from 'src/utils/alert';
+
+import {Alert, NativeModules, Platform} from 'react-native';
+
+export const alert = () => {
+  Alert.alert('', 'Something went wrong, try later.', [
+    {
+      text: 'Ok',
+      style: 'cancel',
+    },
+  ]);
+};
+
+const deviceLanguage =
+  Platform.OS === 'ios'
+    ? NativeModules.SettingsManager.settings.AppleLocale
+    : NativeModules.I18nManager.localIdentifier;
 
 const STORE_LANGUAGE_KEY = 'local';
 
@@ -26,7 +41,7 @@ const languageDetectorPlugin: LanguageDetectorPlugin = {
       if (language) {
         return callback(language);
       } else {
-        return callback('en');
+        return callback(deviceLanguage === 'ka_GE' ? 'ge' : 'en');
       }
     } catch (error) {
       alert();
@@ -56,7 +71,6 @@ i18n
   .init({
     resources,
     compatibilityJSON: 'v3',
-    fallbackLng: 'en',
     interpolation: {
       escapeValue: false,
     },

@@ -15,6 +15,7 @@ import Title from 'src/components/Title';
 
 function App(): React.JSX.Element {
   const {t, i18n, ready} = useTranslation('translation', {useSuspense: false});
+  console.log('i18n.language', i18n.language);
 
   const isFrom = config.APP_CONFIG ?? '';
 
